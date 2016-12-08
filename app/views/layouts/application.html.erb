@@ -9,10 +9,29 @@
 </head>
 <body>
   <div class="container">
+
     <ul class="nav nav-tabs">
        <li><%= link_to "Home", welcome_index_path %></li>
        <li><%= link_to "About", welcome_about_path %></li>
+
+    <div class="pull-right user-info">
+      <div id="header">
+        <% if signed_in? -%>
+          <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+        <% else -%>
+          <%= link_to t(".sign_up"), sign_up_path %> |
+          <%= link_to t(".sign_in"), sign_in_path %>
+        <% end -%>
+      </div>
+    </div>
     </ul>
+
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </div>
 </body>
