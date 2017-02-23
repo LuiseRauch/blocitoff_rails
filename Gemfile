@@ -29,6 +29,8 @@ gem "clearance"
 
 gem 'figaro', '1.0'
 
+gem 'json', github: 'flori/json', branch: 'v1.8'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
